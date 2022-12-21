@@ -10,18 +10,16 @@ BBCar car(servo0_c, servo0_f, servo1_c, servo1_f, servo_ticker, servo_feedback_t
 EventQueue distanceQ;
 Thread measureThread;
 
-
 BusInOut qti_pin(D4,D5,D6,D7);
 
- 
 float angle;
-float PI = 3.1415926535897932;
+float PI = 3.141592653;
 
 void distance_travelled() {
     float distance; 
     angle = (car.readAngle0() + car.readAngle1()) / 2; // taking the average from two wheels
     distance = (6.5*PI*angle) / 360;
-    printf(" angle = %f\n", angle);
+    printf(" distance = %f\n", distance);
 }
 
 int main() {
